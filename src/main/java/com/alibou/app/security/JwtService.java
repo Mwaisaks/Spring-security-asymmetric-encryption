@@ -3,6 +3,7 @@ package com.alibou.app.security;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -23,10 +24,19 @@ public class JwtService {
     @Value("${app.security.jwt.refresh-token-expiration}")
     private long refreshTokenExpiration;
 
+    public JwtService(@Qualifier("jwtPrivateKey") PrivateKey privateKey,
+                      @Qualifier("jwtPublicKey") PublicKey publicKey) {
+        this.privateKey = privateKey;
+        this.publicKey = publicKey;
+    }
+
+    /*
+    //Old approach
     public JwtService() throws Exception {
         this.privateKey = KeyUtils.loadPrivateKey("key/local_only/private_key.pem");
         this.publicKey = KeyUtils.loadPublicKey("key/local_only/public_key.pem");
     }
+     */
 
     public String generateAccessToken(final String username){
         final Map<String, Object> claims = Map.of(TOKEN_TYPE, "ACCESS_TOKEN");

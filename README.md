@@ -40,7 +40,3 @@ Using keys can lead to performance issues? since evrytime you have to load the k
 
 It's recommended to always have a short access token and a longer refresh token...why?
 
-
-The purpose of Spring's OncePerRequestFilter is to guarantee that a filter's logic is executed only once per client request, regardless of the complexity of the request dispatching within the servlet container.
-
-the HttpServletRequest object represents an incoming HTTP request and provides access to its various components, such as headers, parameters, and the request body. 
