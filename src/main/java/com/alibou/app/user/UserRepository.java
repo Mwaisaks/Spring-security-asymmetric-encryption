@@ -1,5 +1,6 @@
 package com.alibou.app.user;
 
+import com.alibou.app.role.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

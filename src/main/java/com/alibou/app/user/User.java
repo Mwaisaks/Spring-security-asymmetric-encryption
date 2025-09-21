@@ -60,6 +60,9 @@ public class User implements UserDetails {
     @Column(name = "is_email_verified")
     private boolean emailVerified;
 
+    @Column(name = "is_phone_verified")
+    private boolean phoneVerified;
+
     @ManyToMany(
             cascade = {CascadeType.PERSIST, CascadeType.MERGE},
             fetch = FetchType.EAGER
