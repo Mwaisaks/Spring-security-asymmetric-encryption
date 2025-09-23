@@ -309,6 +309,8 @@ public class User {
 
 ## Comprehensive Guide to Custom Annotations
 
+https://www.geeksforgeeks.org/java/customize-java-annotation-with-examples/
+
 ### 1. **Basic Structure**
 
 Your custom annotation has all the required parts:
@@ -556,3 +558,7 @@ public boolean isValid(String email, ConstraintValidatorContext context) {
     return !blocked.contains(domain);
 }
 ```
+### Docker
+https://chatgpt.com/c/68d276f4-b8f8-832c-a5e7-78ad77e81973
+
+portainer pass - password1234

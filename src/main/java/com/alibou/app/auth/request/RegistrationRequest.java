@@ -16,13 +16,13 @@ import lombok.*;
 public class RegistrationRequest {
 
     @NotBlank(message = "VALIDATION.REGISTRATION.FIRSTNAME.NOT_BLANK")
-    @Size(min = 5, max = 50, message = "VALIDATION.REGISTRATION.FIRSTNAME.SIZE")
+    @Size(min = 1, max = 50, message = "VALIDATION.REGISTRATION.FIRSTNAME.SIZE")
     @Pattern(regexp = "^[\\p{L} '-]+$", message = "VALIDATION.REGISTRATION.FIRSTNAME.PATTERN")
     @Schema(example = "Ali")
     private String firstName;
 
     @NotBlank(message = "VALIDATION.REGISTRATION.LASTNAME.NOT_BLANK")
-    @Size(min = 5, max = 50, message = "VALIDATION.REGISTRATION.LASTNAME.SIZE")
+    @Size(min = 1, max = 50, message = "VALIDATION.REGISTRATION.LASTNAME.SIZE")
     @Pattern(regexp = "^[\\p{L} '-]+$", message = "VALIDATION.REGISTRATION.LASTNAME.PATTERN")
     @Schema(example = "Ali")
     private String lastName;
@@ -40,8 +40,9 @@ public class RegistrationRequest {
 
     @NotBlank(message = "VALIDATION.REGISTRATION.PASSWORD.NOT_BLANK")
     @Size(min = 8, max = 72, message = "VALIDATION.REGISTRATION.PASSWORD.SIZE")
-    @Pattern(regexp = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*\\W).*$", message = "VALIDATION.REGISTRATION.PASSWORD.WEAK")
-    @Schema(example = "pAssword1_")
+    @Pattern(regexp = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*\\W).*$",
+            message = "VALIDATION.REGISTRATION.PASSWORD.WEAK"
+    )    @Schema(example = "pAssword1!_")
     private String password;
 
     @NotBlank(message = "VALIDATION.REGISTRATION.CONFIRM_PASSWORD.NOT_BLANK")

@@ -1,9 +1,12 @@
 package com.alibou.app.exceptions;
 
+import lombok.Getter;
+
+@Getter
 public class BusinessException extends RuntimeException {
 
     private final ErrorCode errorCode;
-    private final Object args;
+    private final Object[] args;
 
     public BusinessException(final ErrorCode errorCode,
                              final Object... args){
@@ -19,4 +22,5 @@ public class BusinessException extends RuntimeException {
         }
         return errorCode.getDefault_message();
     }
+
 }
