@@ -2,11 +2,17 @@ package com.alibou.app.user;
 
 import com.alibou.app.auth.request.RegistrationRequest;
 import com.alibou.app.user.request.ProfileUpdateRequest;
+import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class UserMapper {
+
+    private final PasswordEncoder encoder;
+
     public void mergeUserInfo(final User user, final ProfileUpdateRequest request) {
 
         if (StringUtils.isNotBlank(request.getFirstName())
@@ -29,7 +35,7 @@ public class UserMapper {
                 .lastName(request.getLastName())
                 .email(request.getEmail())
                 .phoneNumber(request.getPhoneNumber())
-                .password(request.getPassword())
+                .password(this.encoder.encode(request.getPassword()))
                 .enabled(true)
                 .locked(false)
                 .credentialsExpired(false)
